@@ -27,7 +27,7 @@ loginForm.addEventListener('submit', async function(e) {
     } catch (err) {
         // 网络错误或后台未启动时的兜底逻辑（演示环境）
         if (username === 'admin' && password === '123456') {
-            alert('未连接到后台服务，已使用本地兜底登录（仅演示）。请尽快启动后台以加载数据。');
+            // alert('未连接到后台服务，已使用本地兜底登录（仅演示）。请尽快启动后台以加载数据。');
             loginPage.style.display = 'none';
             mainPage.style.display = 'flex';
             // 没有后台时不加载留言，以免报错
@@ -165,4 +165,5 @@ function formatTime(iso) {
         return iso;
     }
 }
+
 
