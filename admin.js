@@ -33,7 +33,7 @@ loginForm.addEventListener('submit', async function(e) {
             // 没有后台时不加载留言，以免报错
             return;
         }
-        alert('无法连接后台服务，请确认已通过 http://localhost:3000/admin.html 访问，并在终端执行 npm start 启动服务。');
+        // alert('无法连接后台服务，请确认已通过 http://localhost:3000/admin.html 访问，并在终端执行 npm start 启动服务。');
     }
 });
 
@@ -165,3 +165,4 @@ function formatTime(iso) {
         return iso;
     }
 }
+
