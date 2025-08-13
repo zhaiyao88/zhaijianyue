@@ -1,216 +1,96 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>翟建跃官网 - 后台管理</title>
-    <link rel="stylesheet" href="admin.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>后台管理</title>
+	<link rel="stylesheet" href="admin.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="loginPage" class="login-page">
-        <div class="login-container">
-            <div class="login-header">
-                <h2><i class="fas fa-shield-alt"></i> 后台管理系统</h2>
-                <p>翟建跃官网管理后台</p>
-            </div>
-            <form id="loginForm" class="login-form">
-                <div class="form-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="username" placeholder="用户名" required>
-                </div>
-                <div class="form-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="password" placeholder="密码" required>
-                </div>
-                <button type="submit" class="login-btn">
-                    <i class="fas fa-sign-in-alt"></i> 登录
-                </button>
-            </form>
-            <div class="login-footer">
-                <p>默认账号：admin / 密码：123456</p>
-            </div>
-        </div>
-    </div>
+	<div id="loginPage" class="login-page">
+		<div class="login-container">
+			<div class="login-header">
+				<h2><i class="fas fa-shield-alt"></i> 后台管理系统</h2>
+				<p>请登录后管理网站内容</p>
+			</div>
+			<form id="loginForm" class="login-form">
+				<div class="form-group">
+					<i class="fas fa-user"></i>
+					<input type="text" id="username" placeholder="用户名" required>
+				</div>
+				<div class="form-group">
+					<i class="fas fa-lock"></i>
+					<input type="password" id="password" placeholder="密码" required>
+				</div>
+				<button type="submit" class="login-btn"><i class="fas fa-sign-in-alt"></i> 登录</button>
+			</form>
+			<div class="login-footer">
+				<p>默认账号：admin / 密码：123456</p>
+			</div>
+		</div>
+	</div>
 
-    <div id="mainPage" class="main-page" style="display: none;">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h3><i class="fas fa-cog"></i> 管理后台</h3>
-            </div>
-            <nav class="sidebar-nav">
-                <ul>
-                    <li class="nav-item active" data-page="dashboard">
-                        <a href="#"><i class="fas fa-tachometer-alt"></i> 仪表板</a>
-                    </li>
-                    <li class="nav-item" data-page="content">
-                        <a href="#"><i class="fas fa-edit"></i> 内容管理</a>
-                    </li>
-                    <li class="nav-item" data-page="services">
-                        <a href="#"><i class="fas fa-cogs"></i> 服务管理</a>
-                    </li>
-                    <li class="nav-item" data-page="messages">
-                        <a href="#"><i class="fas fa-envelope"></i> 留言管理</a>
-                    </li>
-                    <li class="nav-item" data-page="settings">
-                        <a href="#"><i class="fas fa-cog"></i> 系统设置</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="sidebar-footer">
-                <button id="logoutBtn" class="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> 退出登录
-                </button>
-            </div>
-        </aside>
+	<div id="mainPage" class="main-page" style="display:none;">
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<h3><i class="fas fa-cog"></i> 管理后台</h3>
+			</div>
+			<nav class="sidebar-nav">
+				<ul>
+					<li class="nav-item active" data-page="dashboard"><a href="#"><i class="fas fa-tachometer-alt"></i> 仪表板</a></li>
+					<li class="nav-item" data-page="messages"><a href="#"><i class="fas fa-envelope"></i> 留言管理</a></li>
+					<li class="nav-item" data-page="settings"><a href="#"><i class="fas fa-wrench"></i> 系统设置</a></li>
+				</ul>
+			</nav>
+			<div class="sidebar-footer">
+				<button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> 退出登录</button>
+			</div>
+		</aside>
 
-        <main class="main-content">
-            <header class="top-nav">
-                <div class="nav-left">
-                    <button id="sidebarToggle" class="sidebar-toggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <h2 id="pageTitle">仪表板</h2>
-                </div>
-                <div class="nav-right">
-                    <div class="user-info">
-                        <span id="currentUser">管理员</span>
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                </div>
-            </header>
+		<main class="main-content">
+			<header class="top-nav">
+				<div class="nav-left">
+					<button id="sidebarToggle" class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+					<h2 id="pageTitle">仪表板</h2>
+				</div>
+				<div class="nav-right">
+					<div class="user-info"><span id="currentUser">管理员</span> <i class="fas fa-user-circle"></i></div>
+				</div>
+			</header>
 
-            <div class="page-content">
-                <div id="dashboardPage" class="page active">
-                    <div class="dashboard-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-eye"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>今日访问</h3>
-                                <p class="stat-number">1,234</p>
-                                <span class="stat-change positive">+12%</span>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>新留言</h3>
-                                <p class="stat-number">23</p>
-                                <span class="stat-change positive">+5%</span>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>总用户</h3>
-                                <p class="stat-number">8,567</p>
-                                <span class="stat-change positive">+8%</span>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3>转化率</h3>
-                                <p class="stat-number">3.2%</p>
-                                <span class="stat-change negative">-0.5%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+			<div class="page-content">
+				<div id="dashboardPage" class="page active">
+					<div class="dashboard-grid">
+						<div class="stat-card">
+							<div class="stat-icon"><i class="fas fa-eye"></i></div>
+							<div class="stat-content"><h3>今日访问</h3><p class="stat-number">1,234</p></div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-icon"><i class="fas fa-envelope"></i></div>
+							<div class="stat-content"><h3>新留言</h3><p class="stat-number" id="statNewMsg">0</p></div>
+						</div>
+					</div>
+				</div>
 
-                <div id="contentPage" class="page">
-                    <div class="page-header">
-                        <h3>内容管理</h3>
-                        <button class="btn btn-primary" id="addContentBtn">
-                            <i class="fas fa-plus"></i> 添加内容
-                        </button>
-                    </div>
-                    <div class="content-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>标题</th>
-                                    <th>类型</th>
-                                    <th>状态</th>
-                                    <th>创建时间</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>公司介绍</td>
-                                    <td>页面</td>
-                                    <td><span class="status active">已发布</span></td>
-                                    <td>2024-01-15</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-edit"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-delete"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+				<div id="messagesPage" class="page">
+					<div class="page-header"><h3>留言管理</h3></div>
+					<div id="messagesList" class="messages-list"></div>
+				</div>
 
-                <div id="servicesPage" class="page">
-                    <div class="page-header">
-                        <h3>服务管理</h3>
-                        <button class="btn btn-primary" id="addServiceBtn">
-                            <i class="fas fa-plus"></i> 添加服务
-                        </button>
-                    </div>
-                    <div class="services-grid">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h4>技术咨询</h4>
-                            <p>提供专业的技术咨询服务</p>
-                            <div class="service-actions">
-                                <button class="btn btn-sm btn-edit">编辑</button>
-                                <button class="btn btn-sm btn-delete">删除</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="messagesPage" class="page">
-                    <div class="page-header">
-                        <h3>留言管理</h3>
-                    </div>
-                    <div id="messagesList" class="messages-list">
-                        <!-- 动态加载留言 -->
-                    </div>
-                </div>
-
-                <div id="settingsPage" class="page">
-                    <div class="page-header">
-                        <h3>系统设置</h3>
-                    </div>
-                    <div class="settings-form">
-                        <div class="form-group">
-                            <label>网站标题</label>
-                            <input type="text" value="翟建跃官网" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>联系邮箱</label>
-                            <input type="email" value="info@company.com" class="form-control">
-                        </div>
-                        <button class="btn btn-primary">保存设置</button>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script src="admin.js"></script>
+				<div id="settingsPage" class="page">
+					<div class="page-header"><h3>系统设置</h3></div>
+					<div class="settings-form">
+						<div class="form-group">
+							<label>网站标题</label>
+							<input type="text" value="翟建跃官网" class="form-control">
+						</div>
+						<button class="btn btn-primary">保存设置</button>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script src="admin.js"></script>
 </body>
 </html>
